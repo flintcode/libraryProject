@@ -9,6 +9,7 @@ const bookDisplay = document.querySelector('#bookContainer');
 const addBook =  document.getElementsByClassName("addNew");
 const formContainer = document.getElementsByClassName("container");
 let myLibrary = []
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 localStorage.setItem('entries',JSON.stringify(myLibrary));
 const data = JSON.parse(localStorage.getItem('entries'));
 
@@ -20,7 +21,7 @@ function Form () {
         const form = document.createElement('div');
         form.id = "AddCardContainer";
           form.classList.add("container");
-           document.getElementById('formContainer').appendChild(form);
+           document.body.appendChild(form);
 
         const header = document.createElement('h1');
          header.textContent = 'Add Book';
@@ -56,7 +57,15 @@ function Form () {
           cancelButton.textContent = "Cancel";
           form.appendChild(cancelButton);
           cancelButton.id = "cancelButton"
-          cancelButton.addEventListener('click',closeForm);
+          cancelButton.addEventListener('click',() => {
+            for (i = 0; i < formContainer.length; i++){
+                document.body.style.background = "rgb(255, 160, 122)";
+                document.getElementById("header").style.background = "rgb(173, 216, 230)"
+                formContainer[i].style.display = "none";
+                document.body.style.opacity = "1";
+                document.getElementById('addNew').style.display = 'block';
+             }
+            });
 
         const submitButton = document.createElement("BUTTON");
          submitButton.textContent = "Submit";
@@ -69,7 +78,15 @@ function Form () {
             button.textContent = "+ Book"
              button.id = 'addNew'
              document.body.appendChild(button)
-             button.addEventListener('click',openForm)
+             button.addEventListener('click',() => {
+                for (i = 0; i <= formContainer.length; i++){
+                    document.body.style.transition = "all 0.3s";  
+                    document.body.style.background = "rgb(255, 160, 122,0.5)";
+                    document.getElementById("header").style.background = "rgb(173, 216, 230,0.5)";
+                    document.getElementsByClassName("")
+                    formContainer[i].style.display = "block";              
+                }    
+             })
          }       
     }
 function Book (Title,Author,Pages) {
@@ -85,7 +102,7 @@ function Book (Title,Author,Pages) {
         card.textContent += pages + " pages" + "\r\n";
         card.setAttribute('data-id',title);
         card.style.whiteSpace = "pre-line";
-        bookDisplay.appendChild(card);
+        document.body.appendChild(card);
         const readToggle = document.createElement('button')
             readToggle.classList.add("readToggle");     
                 if (document.getElementById('readCheckBox').checked){
@@ -104,7 +121,10 @@ function Book (Title,Author,Pages) {
                 else {
                     readToggle.textContent ="Read"
                     readToggle.style.background = '#94F8F3';
-                }          
+                }
+        
+        
+        let 
             })
         
         const removeButton = document.createElement('button');
@@ -122,24 +142,6 @@ function Book (Title,Author,Pages) {
 Book.prototype = Object.create(Form.prototype);
 
 // Entry form creation
-function openForm (){
-    for (i = 0; i <= formContainer.length; i++){
-        document.body.style.transition = "all 0.3s";  
-        document.body.style.background = "rgb(122, 164, 255,0.5)";
-        document.getElementById("header").style.background = "rgb(122, 164, 255,0.5)";
-        formContainer[i].style.display = "block";
-        formContainer[i].classList.add("addBookContainer");
-    }    
-}
-
-function closeForm (){
-    for (i = 0; i < formContainer.length; i++){
-        document.body.style.background = "rgb(255, 160, 122)";
-        document.getElementById("header").style.background = "rgb(173, 216, 230)"
-        formContainer[i].style.display = "none";
-        document.body.style.opacity = "1";
-    }
-}
 
 let form = new Form()
 form.addButton()
@@ -153,13 +155,19 @@ function addBookToLibrary (e) {
     
     book.CreateCard(book.Title,book.Author,book.Pages)
     localStorage.setItem('entries',JSON.stringify(myLibrary))
+    for (i = 0; i < formContainer.length; i++){
+        formContainer[i].style.display = "none";
+        document.body.style.background = "rgb(255, 160, 122)";
+        document.getElementById("header").style.background = "rgb(173, 216, 230)"
+        document.getElementById('addNew').style.display = 'block';
+    }
   }
 
 //  Replicating elements from local storage to front end
+
 data.forEach(items => {
-    let entry = document.createElement('div')
-    entry.textContent = items
-    bookDisplay.appendChild(entry)
+    let StorageBook = new Book()
+    StorageBook.CreateCard(items.Title,items.Author,items.Pages)
 })
 
 myLibrary = (localStorage.getItem('entries'))?

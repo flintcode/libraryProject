@@ -1,6 +1,6 @@
 # library
 
-Live Preview: https://flintcode.github.io/library/
+Live Preview: https://flintcode.github.io/libraryProject/
 
 1. Using forEach methods to  distribute removal functionality/event to every library entry
 2. Using object constructors to create functionality, and associating DOM corresponding array elements, to allow synchronization

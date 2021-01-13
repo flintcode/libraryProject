@@ -3,6 +3,8 @@ body{
     margin:0;
     font-family: 'Fraunces',serif;   
     z-index:2;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 button {
@@ -12,19 +14,24 @@ button {
     width:100px;
     font-size: 25px;
 }
+.displayNone {
+  display:none;
+}
+
+
 .container{
-    margin:auto;
     background-color:rgb(134, 225, 255);
-    position:relative;
-    top:50px;
+    position:fixed;
+    top:25%;
     height:365px;
     width:275px;
     padding:25px;
     padding-top:5px;
     border-radius:10%;
-    display:none;
-    margin-bottom: 25px;
+    display:none;   
     box-shadow: 0px 3px 9px 3px white;
+    z-index: 1;
+    left:40%;
 }
 
 .buttons {
@@ -50,13 +57,16 @@ button {
 .bookCard {
     margin:15px;
     height:400px;
+    max-height:400px;
+    min-height: 400px;
     width:300px;
+    max-width: 300px;
+    min-width:300px;
+    background-color:rgba(173, 216, 230);
     border:1px solid black;
-    background-color:lightblue;
     text-align: center;
     border-radius: 7%;
     position:relative;
-    top:13%;
     white-space: pre;
     font-size: 30px;
     overflow-wrap: break-word;
@@ -102,17 +112,15 @@ label {
 
 /* buttons */
 #addNew {
-   
-    margin:auto;
-    position: absolute;
-    left:5.5%;
+    position:relative;
+    left:93%;
     height:50px;
-    width:125px;
+    width:100px;
     font-size: 25px;
-    top:8%;
     background-color: white;
     border:none;
     border-radius:5%;
+   
 }
 #addNew:hover{
     background-color: rgb(148, 248, 243);
