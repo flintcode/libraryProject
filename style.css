@@ -1,0 +1,265 @@
+body{
+    background: rgba(255, 160, 122);
+    margin:0;
+    font-family: 'Fraunces',serif;   
+    z-index:2;
+}
+
+button {
+  font-family: 'Fraunces',serif;
+    position: relative;
+    height:50px;
+    width:100px;
+    font-size: 25px;
+}
+.container{
+    margin:auto;
+    background-color:rgb(134, 225, 255);
+    position:relative;
+    top:50px;
+    height:365px;
+    width:275px;
+    padding:25px;
+    padding-top:5px;
+    border-radius:10%;
+    display:none;
+    margin-bottom: 25px;
+    box-shadow: 0px 3px 9px 3px white;
+}
+
+.buttons {
+  margin:auto;
+}
+
+/* card */
+.info {
+    margin:30px;
+    font-size: larger;
+}
+
+#cardTitle{
+    font-size: 35px;
+}
+
+.card {
+    height:500px;
+    width:100%;
+    display:flex;
+
+}
+.bookCard {
+    margin:15px;
+    height:400px;
+    width:300px;
+    border:1px solid black;
+    background-color:lightblue;
+    text-align: center;
+    border-radius: 7%;
+    position:relative;
+    top:13%;
+    white-space: pre;
+    font-size: 30px;
+    overflow-wrap: break-word;
+}
+
+/* form */
+#openForm {
+    width:50px;
+    height:50px;
+}
+
+#header {
+    height:75px;
+    width:100%;
+    overflow: hidden;
+    background-color:rgb(134, 225, 255);
+    
+}
+
+h1 {
+  text-align: center;
+}
+#headerText{
+  position:absolute;
+  left: 5%;
+}
+
+Input {
+    height:50px;
+    width:200px;
+    display:block;
+    margin:10px 0px 10px 15px;
+    font-size: 20px;
+    background-color:rgb(134, 225, 255);
+    border:none;
+}
+
+label {
+  font-size: 20px;
+  position:relative;
+  right:10px;
+}
+
+/* buttons */
+#addNew {
+   
+    margin:auto;
+    position: absolute;
+    left:5.5%;
+    height:50px;
+    width:125px;
+    font-size: 25px;
+    top:8%;
+    background-color: white;
+    border:none;
+    border-radius:5%;
+}
+#addNew:hover{
+    background-color: rgb(148, 248, 243);
+    transition:0.7s;
+}
+
+#submitButton {
+    margin-top:7px;
+    position: relative;
+    left:50px;
+    height:50px;
+    width:100px;
+    font-size: 25px;
+    border:none;
+    background-color: white;
+    border-radius:5%;
+}
+
+#submitButton:hover {
+  box-shadow: 5px 5px lightsalmon;
+  transition:0.5s;
+}
+
+#cancelButton {
+    position: relative;
+    left:30px;
+    height:50px;
+    width:100px;
+    font-size: 25px;
+    border:none;
+    background-color: white;
+    border-radius:5%;
+}
+#cancelButton:hover {
+  box-shadow: 5px 5px lightsalmon;
+  transition:0.5s;
+}
+label{
+    margin:25px;
+}
+.remove {
+    position:absolute;
+    margin-top:7%;
+    right:20%;
+    top:80%;
+    height:35px;
+    width:60%;
+    font-size: large;
+    border:1px solid black;
+    border-radius: 5%;
+    background-color:lightcoral;
+}
+.readToggle {
+  position:absolute;
+  top:62%;
+  right:33%;
+  font-size:large;
+  border:none;
+  border-radius:7%;
+}
+.readToggle:hover {
+  transition:0.5s;
+  box-shadow: 3px 3px lightblue;
+}
+
+#readOrNot{
+    position:relative;
+    bottom:30px;
+    font-weight: lighter;
+}
+
+#readCheckBox {
+    position:relative;
+    left:48%;
+    height:25px;
+    display:inline;
+}
+#readCheckBox::before {
+  content: "Have you read this?";
+  float:left;
+  position:relative;
+  right:65%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    margin:auto;
+    margin-bottom: 15px;
+    left:1px;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
